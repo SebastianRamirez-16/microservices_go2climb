@@ -12,7 +12,14 @@ const getReviews = async () => {
   return ServiceReviews.findAll();
 };
 
+const getReviewById = async (id) => {
+  // Simplemente busca y devuelve la revisión por ID
+  return ServiceReviews.findByPk(id);
+};
+
 module.exports = {
   createReview,
-  getReviews
+  getReviews,
+  getReviewById
+
 };

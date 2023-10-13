@@ -14,7 +14,26 @@ const getReviews = async () => {
   return repository.getReviews();
 };
 
+const getReviewById = async (id) => {
+  const review = await repository.getReviewById(id);
+  
+  if (!review) {
+      return null;
+  }
+  
+  const tourist = await touristService.getTouristById(review.tourist_id); 
+  if (tourist) {
+      // Aquí estamos utilizando dataValues para acceder a los datos directamente
+      review.dataValues.tourist = tourist;
+      delete review.dataValues.tourist_id;
+  }
+
+  // Devolver dataValues para enviar como respuesta
+  return review.dataValues;
+};
+
 module.exports = {
   createReview,
-  getReviews
+  getReviews,
+  getReviewById
 };

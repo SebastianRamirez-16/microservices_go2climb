@@ -18,7 +18,24 @@ const getReviews = async (req, res) => {
   }
 };
 
+const getReviewById = async (req, res) => {
+  try {
+      const id = req.params.id; // Asume que estás pasando el ID en la URL como /reviews/:id
+      const review = await service.getReviewById(id);
+      
+      if (!review) {
+          return res.status(404).send({ message: "Review not found" });
+      }
+
+      res.send(review);
+  } catch (error) {
+      res.status(500).send({ message: error.message });
+  }
+};
+
+
 module.exports = {
   createReview,
-  getReviews
+  getReviews,
+  getReviewById
 };
