@@ -9,11 +9,11 @@ Tourist.init({
         primaryKey: true,
         autoIncrement: true
     },
-    firstName: {  
+    name: {  
         type: DataTypes.STRING,
         allowNull: false
     },
-    lastName: {  
+    last_name: {  
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -25,9 +25,17 @@ Tourist.init({
             isEmail: true
         }
     },
-    country: {  
+    password: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    phone_number: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    photo: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 }, {
     sequelize,
