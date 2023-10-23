@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const sequelize = require('./database'); 
-const Tourist = require('./models/tourist'); 
+const sequelize = require('./src/database'); 
+const Tourist = require('./src/models/tourist'); 
 
 const app = express();
 const PORT = 3000;
